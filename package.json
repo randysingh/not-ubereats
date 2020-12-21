@@ -1,0 +1,38 @@
+{
+  "name": "not-ubereats",
+  "version": "1.0.0",
+  "private": true,
+  "description": "not-ubereats",
+  "author": "Randy Singh",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "license": "0BSD",
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.12.0",
+    "dotenv": "^8.2.0",
+    "gatsby": "^2.26.1",
+    "gatsby-image": "^2.8.0",
+    "gatsby-plugin-google-analytics": "^2.8.0",
+    "gatsby-plugin-manifest": "^2.9.0",
+    "gatsby-plugin-offline": "^3.7.0",
+    "gatsby-plugin-react-helmet": "^3.7.0",
+    "gatsby-plugin-sharp": "^2.11.1",
+    "gatsby-plugin-styled-components": "^3.7.0",
+    "gatsby-source-contentful": "^4.3.0",
+    "gatsby-source-filesystem": "^2.8.0",
+    "gatsby-transformer-remark": "^2.13.0",
+    "gatsby-transformer-sharp": "^2.9.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "styled-components": "^5.2.1"
+  }
+}

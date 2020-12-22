@@ -32,9 +32,11 @@ module.exports = {
     },
     "gatsby-plugin-styled-components",
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: "gatsby-plugin-google-gtag",
       options: {
-        trackingId: process.env.GOOGLE_PROPERTY_ID,
+        trackingIds: [
+          process.env.GOOGLE_TRACKING_ID // Google Analytics / GA
+        ],
       },
     },
     "gatsby-plugin-sharp",

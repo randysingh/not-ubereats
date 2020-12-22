@@ -4,15 +4,8 @@ require("dotenv").config({
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
-  accessToken:
-    process.env.CONTENTFUL_ACCESS_TOKEN ||
-    process.env.CONTENTFUL_DELIVERY_TOKEN,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
 };
-
-if (process.env.CONTENTFUL_HOST) {
-  contentfulConfig.host = process.env.CONTENTFUL_HOST;
-  contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
-}
 
 const { spaceId, accessToken } = contentfulConfig;
 
@@ -41,12 +34,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
-        trackingId: "256836478",
+        trackingId: process.env.GOOGLE_PROPERTY_ID,
       },
     },
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-offline",
     {
       resolve: "gatsby-plugin-manifest",
       options: {

@@ -60,7 +60,7 @@ export default ({ restaurants, location, searchTerm }) => {
   useEffect(() => {
     sortRestaurants();
     setCount(1);
-    loopThroughPosts(count);
+    loopThroughPosts(1);
   }, [searchTerm, location]);
 
   return (

@@ -1,22 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Img from 'gatsby-image';
 import classnames from 'classnames';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import haversine from 'haversine-distance';
 
 import styles from './restaurant.module.css';
 
 export default ({ restaurants, location, searchTerm }) => {
   let filteredRestaurants = restaurants;
+  const restaurantsPerPage = 9;
+  const [restaurantsToShow, setRestaurantsToShow] = useState([]);
+  const [count, setCount] = useState(1);
+
+  const loopThroughPosts = count => {
+    const tempArray = [];
+    for (let i = 0; i < restaurantsPerPage * count; i++) {
+      if (filteredRestaurants[i] !== undefined) {
+        tempArray.push(filteredRestaurants[i]);
+      }
+    }
+    setRestaurantsToShow(tempArray);
+  };
+
+  const handleShowMore = () => {
+    loopThroughPosts(count + 1)
+    setCount(count + 1);
+  };
+
+  const hasMore = () => count * restaurantsPerPage <= restaurantsToShow.length;
+
   const distance = ({ lat, lon }) => {
     const distance =
       haversine({ latitude: location.latitude, longitude: location.longitude }, { latitude: lat, longitude: lon }) /
       1000;
     return Math.round((distance + Number.EPSILON) * 10) / 10;
   };
-  const sortedRestaurants = () => {
+
+  const sortRestaurants = () => {
     if (!location && !searchTerm) {
       return;
     }
@@ -31,9 +54,15 @@ export default ({ restaurants, location, searchTerm }) => {
       return;
     }
     restaurants.forEach((restaurant) => (restaurant.node.distance = distance(restaurant.node.location)));
-    return restaurants.sort((a, b) => a.node.distance - b.node.distance);
+    filteredRestaurants = restaurants.sort((a, b) => a.node.distance - b.node.distance);
   };
-  sortedRestaurants();
+
+  useEffect(() => {
+    sortRestaurants();
+    setCount(1);
+    loopThroughPosts(count);
+  }, [searchTerm, location]);
+
   return (
     <React.Fragment>
       <div
@@ -42,7 +71,7 @@ export default ({ restaurants, location, searchTerm }) => {
         role="status"
       >{`${filteredRestaurants.length} results returned.`}</div>
       <Row as="ul" className="pl-0">
-        {filteredRestaurants.map(({ node }) => {
+        {restaurantsToShow.map(({ node }) => {
           const restaurant = node;
           return (
             <Col as="li" className="mb-4 d-flex align-items-stretch" lg={4} key={restaurant.name}>
@@ -70,12 +99,21 @@ export default ({ restaurants, location, searchTerm }) => {
             </Col>
           );
         })}
-        {filteredRestaurants.length === 0 && (
+        {restaurantsToShow.length === 0 && (
           <Col className="mb-4">
             <p>Sorry no results! Please clear your search and try again.</p>
           </Col>
         )}
       </Row>
+      {hasMore() && (
+        <Row>
+          <Col className="text-center">
+            <Button variant="secondary" onClick={handleShowMore}>
+              View More
+            </Button>
+          </Col>
+        </Row>
+      )}
     </React.Fragment>
   );
 };

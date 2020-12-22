@@ -15,8 +15,8 @@ const Main = ({ location, data }) => {
       <Hero></Hero>
       <Helmet title="Not UberEats" />
       <RestaurantList restaurants={restaurants} />
-      <div className="row footer mt-4 mb-4">
-        <div className="col-lg-12 text-right">
+      <div className="footer mt-4 mb-4">
+        <div className="text-center">
           Made with&nbsp;
           <FontAwesomeIcon color="red" icon={faHeart} />
           &nbsp;by{' '}

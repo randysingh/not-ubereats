@@ -44,7 +44,7 @@ export default ({ restaurants, location, searchTerm }) => {
       return;
     }
     if (searchTerm) {
-      filteredRestaurants = restaurants.filter(
+      filteredRestaurants = filteredRestaurants.filter(
         (restaurant) =>
           restaurant.node.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           restaurant.node.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -53,8 +53,8 @@ export default ({ restaurants, location, searchTerm }) => {
     if (!location) {
       return;
     }
-    restaurants.forEach((restaurant) => (restaurant.node.distance = distance(restaurant.node.location)));
-    filteredRestaurants = restaurants.sort((a, b) => a.node.distance - b.node.distance);
+    filteredRestaurants.forEach((restaurant) => (restaurant.node.distance = distance(restaurant.node.location)));
+    filteredRestaurants = filteredRestaurants.sort((a, b) => a.node.distance - b.node.distance);
   };
 
   useEffect(() => {
@@ -86,7 +86,7 @@ export default ({ restaurants, location, searchTerm }) => {
                     <a target="_blank" rel="noreferrer" className="h5 card-title btn-link" href={restaurant.link}>
                       {restaurant.name}
                     </a>
-                    {location && <p>{distance(restaurant.location)} km</p>}
+                    {location && <p className={styles.distance}>{distance(restaurant.location)} km</p>}
                   </div>
                   <div
                     className="card-text mt-4"

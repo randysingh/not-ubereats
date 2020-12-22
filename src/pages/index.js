@@ -15,14 +15,6 @@ const Main = ({ data }) => {
   const [location, setLocation] = useState(undefined);
   const [searchTerm, setSearchTerm] = useState(undefined);
 
-  const success = (position) => {
-    setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude });
-  };
-
-  if (typeof window !== 'undefined' && navigator.geolocation) {
-    // navigator.geolocation.getCurrentPosition(success); Flag off for now
-  }
-
   return (
     <main>
       <Helmet>
@@ -33,7 +25,7 @@ const Main = ({ data }) => {
       <Hero></Hero>
       <div className="bg-light py-5">
         <Container>
-          <Search setSearchTerm={setSearchTerm} />
+          <Search setSearchTerm={setSearchTerm} setLocation={setLocation} />
           <RestaurantList restaurants={restaurants} location={location} searchTerm={searchTerm} />
         </Container>
       </div>

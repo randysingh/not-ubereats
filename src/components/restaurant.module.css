@@ -2,3 +2,7 @@
   height: 30vh;
   object-fit: cover;
 }
+
+.distance {
+  min-width: 50px;
+}

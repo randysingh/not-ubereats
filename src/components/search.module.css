@@ -1,0 +1,11 @@
+@media (min-width: 576px) {
+  .location {
+    text-align: right;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .location {
+    margin-bottom: 1.5rem;
+  }
+}

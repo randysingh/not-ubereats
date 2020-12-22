@@ -28,12 +28,12 @@ const Main = ({ data }) => {
       <Helmet>
         <html lang="en" />
         <title>{data.site.siteMetadata.title}</title>
-        <description>{data.site.siteMetadata.description}</description>
+        <meta name="description" content={data.site.siteMetadata.description}></meta>
       </Helmet>
       <Hero></Hero>
       <div className="bg-light py-5">
         <Container>
-          <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <Search setSearchTerm={setSearchTerm} />
           <RestaurantList restaurants={restaurants} location={location} searchTerm={searchTerm} />
         </Container>
       </div>
@@ -82,6 +82,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
       }
     }
   }

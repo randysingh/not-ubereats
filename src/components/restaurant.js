@@ -23,7 +23,7 @@ export default ({ restaurants }) => (
                   fluid={restaurant.image.fluid}
                 />
                 <Card.Body>
-                  <a className="h5 card-title btn-link" href={restaurant.link}>
+                  <a target="_blank" rel="noreferrer" className="h5 card-title btn-link" href={restaurant.link}>
                     {restaurant.name}
                   </a>
                   <div className="card-text mt-4"

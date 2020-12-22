@@ -13,7 +13,7 @@ const Main = ({ data }) => {
   const [location, setLocation] = useState(undefined);
 
   const success = (position) => {
-    setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude})
+    setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude });
   };
 
   if (typeof window !== 'undefined' && navigator.geolocation) {
@@ -23,7 +23,11 @@ const Main = ({ data }) => {
   return (
     <main>
       <Hero></Hero>
-      <Helmet title="Not UberEats" />
+      <Helmet>
+        <html lang="en" />
+        <title>{data.site.siteMetadata.title}</title>
+        <description>{data.site.siteMetadata.description}</description>
+      </Helmet>
       <RestaurantList restaurants={restaurants} location={location} />
       <div className="footer mt-4 mb-4">
         <div className="text-center">
@@ -64,6 +68,11 @@ export const pageQuery = graphql`
           }
           link
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }

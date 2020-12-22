@@ -1,0 +1,16 @@
+.background {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 991.98px) {
+  .background {
+    background-image: url(../images/toronto.jpg);
+  }
+}
+@media (min-width: 992px) {
+  .background {
+    background-image: url(../images/toronto-large.jpg);
+  }
+}

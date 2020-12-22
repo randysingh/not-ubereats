@@ -70,7 +70,7 @@ export default ({ restaurants, location, searchTerm }) => {
         aria-live="polite"
         role="status"
       >{`${filteredRestaurants.length} results returned.`}</div>
-      <Row as="ul" className="pl-0">
+      <Row as="ul" className="pl-0" role="region" aria-live="polite" aria-relevant="additions removals">
         {restaurantsToShow.map(({ node }) => {
           const restaurant = node;
           return (

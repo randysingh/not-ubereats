@@ -17,7 +17,7 @@ const Main = ({ data }) => {
   };
 
   if (typeof window !== 'undefined' && navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(success);
+    // navigator.geolocation.getCurrentPosition(success); Flag off for now
   }
 
   return (

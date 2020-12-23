@@ -12,7 +12,7 @@ export default () => (
       <Row className="py-lg-5">
         <Col lg={6} md={8} className="mx-auto">
           <h1 className="font-weight-light">Not UberEats</h1>
-          <p className="lead text-muted">
+          <p className="lead text-dark">
             A list of local restaurants in Toronto that offer their own delivery service. Support local instead of
             letting Uber take 30% of every order!
           </p>

@@ -6,11 +6,11 @@
 
 @media (max-width: 991.98px) {
   .background {
-    background-image: url(../images/toronto.jpg);
+    background-image: url(../images/toronto-plane.jpg);
   }
 }
 @media (min-width: 992px) {
   .background {
-    background-image: url(../images/toronto-large.jpg);
+    background-image: url(../images/toronto-plane.jpg);
   }
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
+import classnames from 'classnames';
 import { Helmet } from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +9,7 @@ import Hero from '../components/hero';
 import Search from '../components/search';
 import RestaurantList from '../components/restaurant';
 
+import styles from './index.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Main = ({ data }) => {
@@ -17,6 +19,9 @@ const Main = ({ data }) => {
 
   return (
     <main>
+      <Link className={classnames(styles.about, "mt-2", "mr-2", "btn", "btn-secondary")} to="/about">
+        About
+      </Link>
       <Helmet>
         <html lang="en" />
         <title>{data.site.siteMetadata.title}</title>

@@ -1,0 +1,14 @@
+.background {
+  min-height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../images/support-local.png);
+}
+
+.home {
+  position:absolute;
+  top:0;
+  left:0;
+}
+

@@ -32,6 +32,7 @@ module.exports = {
     siteUrl: `https://not-ubereats.com/`,
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,

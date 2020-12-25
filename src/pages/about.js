@@ -12,6 +12,7 @@ import Footer from '../components/footer';
 import styles from './about.module.css';
 
 const AboutPage = ({ data }) => {
+
   const src = data.allContentfulHero.edges.find(element => element.node.name === 'About').node.image.file.url;
   return (
     <main>
@@ -23,7 +24,7 @@ const AboutPage = ({ data }) => {
       <Link className={classnames(styles.home, 'mt-2', 'ml-2', 'btn', 'btn-secondary')} to="/">
         Home
       </Link>
-      <div className={styles.background} style={{'background-image': `url(${src})`}}>
+      <div className={styles.background} style={{'backgroundImage': `url(${src})`}}>
         <Container className="text-center py-5">
           <Row className={classnames('py-lg-5', 'align-items-center')}>
             <Col lg={6} md={8} className="mx-auto">
@@ -66,7 +67,7 @@ const AboutPage = ({ data }) => {
                 </Form.Group>
                 <Form.Group controlId="message">
                   <Form.Label>Message</Form.Label>
-                  <Form.Control as="textarea" rows={3} name="message" />
+                  <Form.Control as="textarea" rows={3} name="message" required />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                   Submit

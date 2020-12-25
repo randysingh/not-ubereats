@@ -13,9 +13,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Main = ({ data }) => {
   const restaurants = data.allContentfulRestaurant.edges;
+  const imageUrl = data.allContentfulHero.edges.find(element => element.node.name === 'Home').node.image.file.url;
   const [location, setLocation] = useState(undefined);
   const [searchTerm, setSearchTerm] = useState(undefined);
-
   return (
     <main>
       <Link className={classnames(styles.about, "mt-2", "mr-2", "btn", "btn-secondary")} to="/about">
@@ -26,7 +26,7 @@ const Main = ({ data }) => {
         <title>{data.site.siteMetadata.title}</title>
         <meta name="description" content={data.site.siteMetadata.description}></meta>
       </Helmet>
-      <Hero></Hero>
+      <Hero src={imageUrl}></Hero>
       <div className="bg-light py-5">
         <Container>
           <Search setSearchTerm={setSearchTerm} setLocation={setLocation} />
@@ -62,6 +62,18 @@ export const pageQuery = graphql`
           }
           link
           tags
+        }
+      }
+    }
+    allContentfulHero {
+      edges {
+        node {
+          name
+          image {
+            file {
+              url
+            }
+          }
         }
       }
     }

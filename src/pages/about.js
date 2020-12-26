@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Form from 'react-bootstrap/Form';
@@ -12,8 +12,19 @@ import Footer from '../components/footer';
 import styles from './about.module.css';
 
 const AboutPage = ({ data }) => {
+  const [validated, setValidated] = useState(false);
 
-  const src = data.allContentfulHero.edges.find(element => element.node.name === 'About').node.image.file.url;
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+  };
+
+  const src = data.allContentfulHero.edges.find((element) => element.node.name === 'About').node.image.file.url;
   return (
     <main>
       <Helmet>
@@ -24,7 +35,7 @@ const AboutPage = ({ data }) => {
       <Link className={classnames(styles.home, 'mt-2', 'ml-2', 'btn', 'btn-secondary')} to="/">
         Home
       </Link>
-      <div className={styles.background} style={{'backgroundImage': `url(${src})`}}>
+      <div className={styles.background} style={{ backgroundImage: `url(${src})` }}>
         <Container className="text-center py-5">
           <Row className={classnames('py-lg-5', 'align-items-center')}>
             <Col lg={6} md={8} className="mx-auto">
@@ -53,7 +64,15 @@ const AboutPage = ({ data }) => {
           </Row>
           <Row>
             <Col>
-              <Form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
+              <Form
+                method="post"
+                validated={validated}
+                netlify-honeypot="bot-field"
+                data-netlify="true"
+                name="contact"
+                noValidate
+                onSubmit={handleSubmit}
+              >
                 <input type="hidden" name="bot-field" />
                 <input type="hidden" name="form-name" value="contact" />
                 <Form.Group controlId="name">
@@ -63,11 +82,13 @@ const AboutPage = ({ data }) => {
                 <Form.Group controlId="email">
                   <Form.Label>Email</Form.Label>
                   <Form.Control type="email" placeholder="Email" name="email" />
+                  <Form.Control.Feedback type="invalid">Enter valid email</Form.Control.Feedback>
                   <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
                 </Form.Group>
                 <Form.Group controlId="message">
                   <Form.Label>Message</Form.Label>
                   <Form.Control as="textarea" rows={3} name="message" required />
+                  <Form.Control.Feedback type="invalid">Message is required</Form.Control.Feedback>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                   Submit

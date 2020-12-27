@@ -96,6 +96,25 @@ const AboutPage = ({ data }) => {
               </Form>
             </Col>
           </Row>
+          <Row className="mt-4">
+            <Col>
+              <p>
+                Are you a restaurant needing help setting up delivery? Check out{' '}
+                <a target="_blank" rel="noreferrer" href="https://localeats.to/">
+                  LocalEats.to
+                </a>
+              </p>
+              <p>
+                This website was built by me,{' '}
+                <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/randynsingh">
+                  Randy Singh
+                </a>
+                , in order to help restaurants during this difficult time and I do not profit in any way. Also thank you
+                to <a target="_blank" rel="noreferrer" href="https://ca.linkedin.com/in/gamaliel-obinyan">Gamaliel Obinyan</a> for helping research local
+                restaurants and for the encouragement.
+              </p>
+            </Col>
+          </Row>
         </Container>
       </div>
       <Footer />

@@ -11,7 +11,6 @@ import Footer from '../components/footer';
 
 const SubmitBusinessPage = ({ data }) => {
   const [validated, setValidated] = useState(false);
-  const [validImage, setValidImage] = useState(true);
 
   const fileOnChange = (event) => {
     const files = event.currentTarget.files;
@@ -24,19 +23,14 @@ const SubmitBusinessPage = ({ data }) => {
         event.currentTarget.setCustomValidity(
           'The selected file must not be larger than 500 kB and must be either jpg or png.'
         );
-        setValidImage(false);
-      }
-      else {
+      } else {
         event.currentTarget.setCustomValidity('');
-        setValidImage(true);
-
       }
     }
   };
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
-    console.log(form);
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
@@ -87,7 +81,9 @@ const SubmitBusinessPage = ({ data }) => {
                 <Form.Group controlId="link">
                   <Form.Label>Link to website - (Please use https if possible)</Form.Label>
                   <Form.Control type="URL" placeholder="Link" name="link" required />
-                  <Form.Control.Feedback type="invalid">Link is required. Please include https://</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">
+                    Link is required. Please include https://
+                  </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group controlId="cuisine">
                   <Form.Label>Cuisine</Form.Label>
@@ -129,9 +125,10 @@ const SubmitBusinessPage = ({ data }) => {
                     <option>Pickup Only</option>
                   </Form.Control>
                 </Form.Group>
-                <Form.Group>
-                  <Form.File
-                    isInvalid={true}
+                <Form.Group controlId="image">
+                  <Form.Label>Please select an image</Form.Label>
+                  <Form.Control
+                    type="file"
                     accept="image/png, image/jpeg, image/jpg"
                     onChange={fileOnChange}
                     id="image"
@@ -139,14 +136,12 @@ const SubmitBusinessPage = ({ data }) => {
                     label="Please upload an image"
                     required
                   />
+                  <Form.Control.Feedback type="invalid">
+                    Please include an image(jpg/png) 500 kB or less.
+                  </Form.Control.Feedback>
                   <Form.Text className="text-muted">
                     Please include a high quality image to appear on the site. No logos or images with lots of text.
                   </Form.Text>
-                  {!validImage && (
-                    <div style={{ display: 'block' }} className="invalid-feedback">
-                      Please include an image(jpg/png) 500 kB or less.
-                    </div>
-                  )}
                 </Form.Group>
                 <Form.Group controlId="agree">
                   <Form.Check

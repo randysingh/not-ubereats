@@ -9,7 +9,6 @@ import RestaurantList from '../components/restaurant';
 import Footer from '../components/footer';
 
 import styles from './index.module.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Main = ({ data }) => {
   const restaurants = data.allContentfulRestaurant.edges;

@@ -92,12 +92,16 @@ const SubmitBusinessPage = ({ data }) => {
                 <Form.Group controlId="cuisine">
                   <Form.Label>Cuisine</Form.Label>
                   <Form.Control as="select" rows={3} name="cuisine" required>
+                    <option>Argentinian</option>
                     <option>Breakfast</option>
                     <option>Canadian</option>
                     <option>Carribean</option>
                     <option>Chinese</option>
                     <option>BBQ</option>
                     <option>Desserts</option>
+                    <option>Eastern European</option>
+                    <option>Ethiopian</option>
+                    <option>French</option>
                     <option>Indian</option>
                     <option>Italian</option>
                     <option>Japanese</option>
@@ -106,13 +110,23 @@ const SubmitBusinessPage = ({ data }) => {
                     <option>Mexican</option>
                     <option>Middle Eastern</option>
                     <option>Pizza</option>
+                    <option>Pub Grub</option>
                     <option>Sandwiches</option>
                     <option>Salad</option>
+                    <option>Seafood</option>
                     <option>Sushi</option>
                     <option>Thai</option>
                     <option>Vegan</option>
                     <option>Vietnamese</option>
                     <option>Wings</option>
+                  </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="service">
+                  <Form.Label>Service Offered</Form.Label>
+                  <Form.Control as="select" rows={3} name="service" required>
+                    <option>Delivery & Pickup</option>
+                    <option>Delivery Only</option>
+                    <option>Pickup Only</option>
                   </Form.Control>
                 </Form.Group>
                 <Form.Group>

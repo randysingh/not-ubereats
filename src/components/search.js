@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import classnames from 'classnames';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -12,6 +13,7 @@ import styles from './search.module.css';
 
 export default ({ data, setSearchTerm, setLocation }) => {
   const [loading, setLoading] = useState(false);
+  const [hasError, setError] = useState(false);
   const [hasLocation, setHasLocation] = useState(false);
   const success = (position) => {
     setLoading(false);
@@ -20,13 +22,14 @@ export default ({ data, setSearchTerm, setLocation }) => {
   };
 
   const error = () => {
+    setError(true);
     setLoading(false);
   };
 
   const addLocation = () => {
     if (typeof window !== 'undefined' && navigator.geolocation) {
       setLoading(true);
-      navigator.geolocation.getCurrentPosition(success, error);
+      navigator.geolocation.getCurrentPosition(success, error, { timeout: 5000 });
     }
   };
 
@@ -61,6 +64,11 @@ export default ({ data, setSearchTerm, setLocation }) => {
             </React.Fragment>
           )}
         </Button>
+        {hasError && (
+          <span className={classnames('invalid-feedback', styles.warning)}>
+            Please enable location on your device.
+          </span>
+        )}
       </Col>
     </Row>
   );

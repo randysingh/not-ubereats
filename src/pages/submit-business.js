@@ -58,8 +58,8 @@ const SubmitBusinessPage = ({ data }) => {
           <Row>
             <Col>
               <Form
-                validated={validated}
                 method="post"
+                validated={validated}
                 netlify-honeypot="bot-field"
                 data-netlify="true"
                 name="business"

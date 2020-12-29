@@ -11,14 +11,15 @@ I built this site using Gatsby, using Contentful CMS and hosted on Netlify. For 
 View the running website - https://not-ubereats.com/
 </p>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8628a000-2043-4016-ac7c-d9c14559d7f7/deploy-status)](https://app.netlify.com/sites/optimistic-wing-8db644/deploys)
+
 ## 🚀 Quick start
 
 1.  **Start developing.**
 
-    Navigate into your new site’s directory and start it up.
+    Navigate to the repo and run:
 
     ```shell
-    cd my-gatsby-site/
     npm run develop
     ```
 2.  **Open the code and start customizing!**

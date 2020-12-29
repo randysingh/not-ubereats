@@ -16,7 +16,7 @@ export default ({ src }) => (
             A list of local restaurants in Toronto that offer their own delivery service. Support local instead of
             letting Uber take 30% of every order!
           </p>
-          <Link className="btn btn-primary" to="/submit-business">Submit a Business</Link>
+          <Link className="btn btn-primary" to="/submit-business/">Submit a Business</Link>
         </Col>
       </Row>
     </Container>

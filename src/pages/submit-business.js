@@ -131,7 +131,6 @@ const SubmitBusinessPage = ({ data }) => {
                     type="file"
                     accept="image/png, image/jpeg, image/jpg"
                     onChange={fileOnChange}
-                    id="image"
                     name="image"
                     label="Please upload an image"
                     required

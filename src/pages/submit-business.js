@@ -146,7 +146,7 @@ const SubmitBusinessPage = ({ data }) => {
                   <Form.Check
                     type="checkbox"
                     name="agree"
-                    label="I confirm this restaurant offers it's own delivery service (ie. no UberEats, DoorDash, Skip the dishes etc.)"
+                    label="I confirm this restaurant offers its own delivery service (ie. no UberEats, DoorDash, Skip the dishes etc.)"
                     required
                   />
                 </Form.Group>

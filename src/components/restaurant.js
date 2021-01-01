@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import haversine from 'haversine-distance';
 
@@ -11,11 +12,28 @@ import styles from './restaurant.module.css';
 
 export default ({ restaurants, location, searchTerm }) => {
   let filteredRestaurants = restaurants;
+  const currentDayofWeek = new Date().toLocaleString('en-us', { weekday: 'long' });
+  const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
   const restaurantsPerPage = 9;
   const [restaurantsToShow, setRestaurantsToShow] = useState([]);
   const [count, setCount] = useState(1);
 
-  const loopThroughPosts = count => {
+  const isOpen = (deliveryHours) => {
+    if (!deliveryHours) {
+      return false;
+    }
+    if (deliveryHours.length > 0) {
+      const hours = deliveryHours[0].Everyday || deliveryHours[0][currentDayofWeek];
+      if (hours) {
+        if (hours.open <= currentTime && hours.closed > currentTime) {
+          return true;
+        }
+        return false;
+      }
+    }
+  };
+
+  const loopThroughPosts = (count) => {
     const tempArray = [];
     for (let i = 0; i < restaurantsPerPage * count; i++) {
       if (filteredRestaurants[i] !== undefined) {
@@ -26,7 +44,7 @@ export default ({ restaurants, location, searchTerm }) => {
   };
 
   const handleShowMore = () => {
-    loopThroughPosts(count + 1)
+    loopThroughPosts(count + 1);
     setCount(count + 1);
   };
 
@@ -40,6 +58,15 @@ export default ({ restaurants, location, searchTerm }) => {
   };
 
   const sortRestaurants = () => {
+
+    filteredRestaurants.forEach(
+      (restaurant) =>
+        (restaurant.node.isOpen =
+          restaurant.node.isOpen === undefined && restaurant.node.deliveryHours
+            ? isOpen(restaurant.node.deliveryHours)
+            : restaurant.node.isOpen)
+    );
+
     if (!location && !searchTerm) {
       return;
     }
@@ -86,7 +113,10 @@ export default ({ restaurants, location, searchTerm }) => {
                     <a target="_blank" rel="noreferrer" className="h5 card-title btn-link" href={restaurant.link}>
                       {restaurant.name}
                     </a>
-                    {location && <p className={styles.distance}>{distance(restaurant.location)} km</p>}
+                    <div className="d-flex align-items-start">
+                      {location && <p className={styles.distance}>{distance(restaurant.location)} km</p>}
+                      {restaurant.isOpen && <Badge className={styles.badge} variant="success">OPEN</Badge>}
+                    </div>
                   </div>
                   <div
                     className="card-text mt-4"

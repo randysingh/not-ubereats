@@ -61,6 +61,40 @@ export const pageQuery = graphql`
           }
           link
           tags
+          deliveryHours {
+            Monday {
+              open
+              closed
+            }
+            Tuesday {
+              open
+              closed
+            }
+            Wednesday {
+              open
+              closed
+            }
+            Thursday {
+              open
+              closed
+            }
+            Sunday {
+              open
+              closed
+            }
+            Saturday {
+              open
+              closed
+            }
+            Friday {
+              open
+              closed
+            }
+            Everyday {
+              open
+              closed
+            }
+          }
         }
       }
     }

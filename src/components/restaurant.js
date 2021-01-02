@@ -13,7 +13,7 @@ import haversine from 'haversine-distance';
 import styles from './restaurant.module.css';
 
 export default ({ restaurants, location, searchTerm }) => {
-  let filteredRestaurants = restaurants;
+  const [filteredRestaurants, setFilteredRestaurants] = useState(restaurants);
   const currentDayofWeek = new Date().toLocaleString('en-us', { weekday: 'long' });
   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
   const restaurantsPerPage = 9;
@@ -47,7 +47,6 @@ export default ({ restaurants, location, searchTerm }) => {
   };
 
   const handleShowMore = () => {
-    loopThroughPosts(count + 1);
     setCount(count + 1);
   };
 
@@ -61,7 +60,8 @@ export default ({ restaurants, location, searchTerm }) => {
   };
 
   const sortRestaurants = () => {
-    filteredRestaurants.forEach(
+    let currentRestaurants = restaurants;
+    currentRestaurants.forEach(
       (restaurant) =>
         (restaurant.node.isOpen =
           restaurant.node.isOpen === undefined && restaurant.node.deliveryHours
@@ -70,31 +70,37 @@ export default ({ restaurants, location, searchTerm }) => {
     );
 
     if (showOpenOnly) {
-      filteredRestaurants = filteredRestaurants.filter(restaurant => restaurant.node.isOpen);
+      currentRestaurants = currentRestaurants.filter((restaurant) => restaurant.node.isOpen);
     }
 
     if (!location && !searchTerm) {
+      setFilteredRestaurants(currentRestaurants);
       return;
     }
     if (searchTerm) {
-      filteredRestaurants = filteredRestaurants.filter(
+      currentRestaurants = currentRestaurants.filter(
         (restaurant) =>
           restaurant.node.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           restaurant.node.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()))
       );
     }
     if (!location) {
+      setFilteredRestaurants(currentRestaurants);
       return;
     }
-    filteredRestaurants.forEach((restaurant) => (restaurant.node.distance = distance(restaurant.node.location)));
-    filteredRestaurants = filteredRestaurants.sort((a, b) => a.node.distance - b.node.distance);
+    currentRestaurants.forEach((restaurant) => (restaurant.node.distance = distance(restaurant.node.location)));
+    currentRestaurants = currentRestaurants.sort((a, b) => a.node.distance - b.node.distance);
+    setFilteredRestaurants(currentRestaurants);
   };
 
   useEffect(() => {
     sortRestaurants();
     setCount(1);
-    loopThroughPosts(1);
   }, [searchTerm, location, showOpenOnly]);
+
+  useEffect(() => {
+    loopThroughPosts(count);
+  }, [count, filteredRestaurants]);
 
   return (
     <React.Fragment>

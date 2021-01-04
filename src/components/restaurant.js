@@ -6,13 +6,15 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import haversine from 'haversine-distance';
+import Location from './location';
 
 import styles from './restaurant.module.css';
 
-export default ({ restaurants, location, searchTerm }) => {
+export default ({ restaurants, searchTerm }) => {
   const [filteredRestaurants, setFilteredRestaurants] = useState(restaurants);
   const currentDayofWeek = new Date().toLocaleString('en-us', { weekday: 'long' });
   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
@@ -20,6 +22,8 @@ export default ({ restaurants, location, searchTerm }) => {
   const [restaurantsToShow, setRestaurantsToShow] = useState([]);
   const [count, setCount] = useState(1);
   const [showOpenOnly, setShowOpenOnly] = useState(false);
+  const [location, setLocation] = useState(undefined);
+  const [hasLocationError, setLocationError] = useState(false);
 
   const isOpen = (deliveryHours) => {
     if (!deliveryHours) {
@@ -109,17 +113,29 @@ export default ({ restaurants, location, searchTerm }) => {
         aria-live="polite"
         role="status"
       >{`${filteredRestaurants.length} results returned.`}</div>
-      <ToggleButtonGroup className="mb-2" type="checkbox">
-        <ToggleButton
-          type="checkbox"
-          variant="outline-success"
-          checked={showOpenOnly}
-          size="sm"
-          onChange={(e) => setShowOpenOnly(e.currentTarget.checked)}
-        >
-          Open Now
-        </ToggleButton>
-      </ToggleButtonGroup>
+      <Row className="mb-4">
+        <Col>
+          <ButtonGroup aria-label="Filters">
+            <Location setLocation={setLocation} setLocationError={setLocationError}></Location>
+            <ToggleButtonGroup type="checkbox">
+              <ToggleButton
+                type="checkbox"
+                variant="outline-success"
+                checked={showOpenOnly}
+                size="sm"
+                onChange={(e) => setShowOpenOnly(e.currentTarget.checked)}
+              >
+                Open Now
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </ButtonGroup>
+          {hasLocationError && (
+            <span className={classnames('invalid-feedback', styles.warning)}>
+              Please enable location on your device.
+            </span>
+          )}
+        </Col>
+      </Row>
       <Row as="ul" className="pl-0" role="region" aria-live="polite" aria-relevant="additions removals">
         {restaurantsToShow.map(({ node }) => {
           const restaurant = node;

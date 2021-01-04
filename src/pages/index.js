@@ -13,7 +13,6 @@ import styles from './index.module.css';
 const Main = ({ data }) => {
   const restaurants = data.allContentfulRestaurant.edges;
   const imageUrl = data.allContentfulHero.edges.find(element => element.node.name === 'Home').node.image.file.url;
-  const [location, setLocation] = useState(undefined);
   const [searchTerm, setSearchTerm] = useState(undefined);
   return (
     <main>
@@ -28,8 +27,8 @@ const Main = ({ data }) => {
       <Hero src={imageUrl}></Hero>
       <div className="bg-light py-5">
         <Container>
-          <Search setSearchTerm={setSearchTerm} setLocation={setLocation} />
-          <RestaurantList restaurants={restaurants} location={location} searchTerm={searchTerm} />
+          <Search setSearchTerm={setSearchTerm} />
+          <RestaurantList restaurants={restaurants} searchTerm={searchTerm} />
         </Container>
       </div>
       <Footer />

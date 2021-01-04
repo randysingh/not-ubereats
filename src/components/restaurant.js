@@ -10,6 +10,8 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import haversine from 'haversine-distance';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import Location from './location';
 
 import styles from './restaurant.module.css';
@@ -106,6 +108,10 @@ export default ({ restaurants, searchTerm }) => {
     loopThroughPosts(count);
   }, [location, count, filteredRestaurants]);
 
+  const createMapUrl = (restaurant) => {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(restaurant.name)}+toronto`;
+  };
+
   return (
     <React.Fragment>
       <div
@@ -149,16 +155,27 @@ export default ({ restaurants, searchTerm }) => {
                 />
                 <Card.Body>
                   <div className="d-flex justify-content-between">
-                    <a target="_blank" rel="noreferrer" className="h5 card-title btn-link" href={restaurant.link}>
-                      {restaurant.name}
-                    </a>
-                    <div className="d-flex align-items-start">
-                      {location && <p className={styles.distance}>{distance(restaurant.location)} km</p>}
+                    <div className="d-flex flex-column align-items-start">
+                      <a target="_blank" rel="noreferrer" className="h5 card-title btn-link" href={restaurant.link}>
+                        {restaurant.name}
+                      </a>
                       {restaurant.isOpen && (
-                        <Badge className={styles.badge} variant="success">
+                        <Badge className="mb-0" as="p" variant="success">
                           OPEN
                         </Badge>
                       )}
+                    </div>
+                    <div className="d-flex align-items-start">
+                      {location && <p className={styles.distance}>{distance(restaurant.location)} km</p>}
+                      <a
+                        className="h5 card-title btn-link"
+                        title="View on map"
+                        target="_blank"
+                        rel="noreferrer"
+                        href={createMapUrl(restaurant)}
+                      >
+                        <FontAwesomeIcon icon={faMapMarkedAlt} />
+                      </a>
                     </div>
                   </div>
                   <div

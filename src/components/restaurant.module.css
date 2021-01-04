@@ -5,11 +5,7 @@
 
 .distance {
   min-width: 50px;
-}
-
-.badge {
-  margin-top: 0.25em;
-  margin-left: 0.5em;
+  margin-right: 0.25rem;
 }
 
 .warning {

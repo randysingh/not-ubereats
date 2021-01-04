@@ -100,7 +100,7 @@ export default ({ restaurants, location, searchTerm }) => {
 
   useEffect(() => {
     loopThroughPosts(count);
-  }, [count, filteredRestaurants]);
+  }, [location, count, filteredRestaurants]);
 
   return (
     <React.Fragment>

@@ -36,6 +36,14 @@ export default ({ restaurants, searchTerm }) => {
         if (hours.open <= currentTime && hours.closed > currentTime) {
           return true;
         }
+        // If restaurant closes past midnight
+        else if((parseInt(currentTime.charAt(0)) > 0 && parseInt(hours.closed.charAt(0)) === 0)){
+          return true;
+        }
+        // If currently past midnight and the restaurant is still open
+        else if(parseInt(currentTime.charAt(0)) === 0 && hours.closed > currentTime && hours.closed < hours.open){
+          return true;
+        }
         return false;
       }
     }

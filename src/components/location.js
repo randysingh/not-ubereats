@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import classnames from 'classnames';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

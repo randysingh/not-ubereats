@@ -37,11 +37,11 @@ export default ({ restaurants, searchTerm }) => {
           return true;
         }
         // If restaurant closes past midnight
-        else if((parseInt(currentTime.charAt(0)) > 0 && parseInt(hours.closed.charAt(0)) === 0)){
+        else if (parseInt(currentTime.charAt(0)) > 0 && parseInt(hours.closed.charAt(0)) === 0) {
           return true;
         }
         // If currently past midnight and the restaurant is still open
-        else if(parseInt(currentTime.charAt(0)) === 0 && hours.closed > currentTime && hours.closed < hours.open){
+        else if (parseInt(currentTime.charAt(0)) === 0 && hours.closed > currentTime && hours.closed < hours.open) {
           return true;
         }
         return false;
@@ -82,7 +82,9 @@ export default ({ restaurants, searchTerm }) => {
             : restaurant.node.isOpen)
     );
 
-    currentRestaurants.sort((a, b) => b.node.isOpen - a.node.isOpen)
+    currentRestaurants.sort((a, b) => {
+      return a.node.isOpen === b.node.isOpen ? 0 : a.node.isOpen ? -1 : 1;
+    });
 
     if (showOpenOnly) {
       currentRestaurants = currentRestaurants.filter((restaurant) => restaurant.node.isOpen);

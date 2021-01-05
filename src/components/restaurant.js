@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import haversine from 'haversine-distance';
@@ -75,6 +74,8 @@ export default ({ restaurants, searchTerm }) => {
             : restaurant.node.isOpen)
     );
 
+    currentRestaurants.sort((a, b) => b.node.isOpen - a.node.isOpen)
+
     if (showOpenOnly) {
       currentRestaurants = currentRestaurants.filter((restaurant) => restaurant.node.isOpen);
     }
@@ -121,9 +122,9 @@ export default ({ restaurants, searchTerm }) => {
       >{`${filteredRestaurants.length} results returned.`}</div>
       <Row className="mb-4">
         <Col>
-          <ButtonGroup aria-label="Filters">
+          <div className="d-flex">
             <Location setLocation={setLocation} setLocationError={setLocationError}></Location>
-            <ToggleButtonGroup type="checkbox">
+            <ToggleButtonGroup className="ml-1" type="checkbox">
               <ToggleButton
                 type="checkbox"
                 variant="outline-success"
@@ -134,7 +135,7 @@ export default ({ restaurants, searchTerm }) => {
                 Open Now
               </ToggleButton>
             </ToggleButtonGroup>
-          </ButtonGroup>
+          </div>
           {hasLocationError && (
             <span className={classnames('invalid-feedback', styles.warning)}>
               Please enable location on your device.

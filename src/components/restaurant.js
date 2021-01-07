@@ -159,11 +159,13 @@ export default ({ restaurants, searchTerm }) => {
           return (
             <Col as="li" className="mb-4 d-flex align-items-stretch" lg={4} key={restaurant.name}>
               <Card className="shadow-sm">
-                <Img
-                  className={classnames('card-img-top', styles.restaurantImage)}
-                  alt=""
-                  fluid={restaurant.image.fluid}
-                />
+                <a aria-hidden="true" target="_blank" rel="noreferrer" href={restaurant.link}>
+                  <Img
+                    className={classnames('card-img-top', styles.restaurantImage)}
+                    alt=""
+                    fluid={restaurant.image.fluid}
+                  />
+                </a>
                 <Card.Body>
                   <div className="d-flex justify-content-between">
                     <div className="d-flex flex-column align-items-start">

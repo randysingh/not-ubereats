@@ -11,6 +11,7 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import haversine from 'haversine-distance';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
+import Autocomplete from 'react-google-autocomplete';
 import Location from './location';
 
 import styles from './restaurant.module.css';
@@ -147,9 +148,21 @@ export default ({ restaurants, searchTerm }) => {
             </ToggleButtonGroup>
           </div>
           {hasLocationError && (
-            <span className={classnames('invalid-feedback', styles.warning)}>
-              Please enable location on your device.
-            </span>
+            <div>
+              <span className={classnames('invalid-feedback', styles.warning)}>
+                Please enable location services on your device or try entering your address below:
+              </span>
+              <Autocomplete
+                apiKey={process.env.GATSBY_GOOGLE_PLACES_KEY}
+                className="form-control mt-2"
+                aria-label="Enter a location"
+                onPlaceSelected={(place) => {
+                  setLocation({ latitude: place.geometry.location.lat(), longitude: place.geometry.location.lng() });
+                }}
+                types={['address']}
+                componentRestrictions={{ country: 'ca' }}
+              />
+            </div>
           )}
         </Col>
       </Row>

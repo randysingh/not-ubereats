@@ -75,8 +75,18 @@ const SubmitBusinessPage = ({ data }) => {
                 </Form.Group>
                 <Form.Group controlId="description">
                   <Form.Label>Description - 250 character limit</Form.Label>
-                  <Form.Control type="textarea" placeholder="Description" name="description" maxLength="250" required />
-                  <Form.Control.Feedback type="invalid">Description is required</Form.Control.Feedback>
+                  <Form.Control type="textarea" placeholder="Description" name="description" minLength="100" maxLength="250" required />
+                  <Form.Control.Feedback type="invalid">Description is required. 100 character minimum.</Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group controlId="address">
+                  <Form.Label>Address</Form.Label>
+                  <Form.Control type="text" placeholder="Address" name="address" required />
+                  <Form.Control.Feedback type="invalid">Address is required</Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group controlId="hours">
+                  <Form.Label>Hours</Form.Label>
+                  <Form.Control type="text" placeholder="Hours (eg. M-F 8am-8pm, S-S 10am-10pm)" name="hours" required />
+                  <Form.Control.Feedback type="invalid">Hours are required</Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group controlId="link">
                   <Form.Label>Link to website - (Please use https if possible)</Form.Label>

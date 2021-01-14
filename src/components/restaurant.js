@@ -26,6 +26,7 @@ export default ({ restaurants, searchTerm }) => {
   const [showOpenOnly, setShowOpenOnly] = useState(false);
   const [location, setLocation] = useState(undefined);
   const [hasLocationError, setLocationError] = useState(false);
+  const [showAddressBar, setShowAddressBar] = useState(false);
 
   const isOpen = (deliveryHours) => {
     if (!deliveryHours) {
@@ -147,11 +148,16 @@ export default ({ restaurants, searchTerm }) => {
               </ToggleButton>
             </ToggleButtonGroup>
           </div>
-          {hasLocationError && (
-            <div>
+          <div>
+            <Button className="pl-0" onClick={() => setShowAddressBar(true)} variant="link" type="submit" size="sm">
+              Not at home? Enter address
+            </Button>
+            {hasLocationError && (
               <span className={classnames('invalid-feedback', styles.warning)}>
                 Please enable location services on your device or try entering your address below:
               </span>
+            )}
+            {(showAddressBar || hasLocationError) && (
               <Autocomplete
                 apiKey={process.env.GATSBY_GOOGLE_PLACES_KEY}
                 className="form-control mt-2"
@@ -162,8 +168,8 @@ export default ({ restaurants, searchTerm }) => {
                 types={['address']}
                 componentRestrictions={{ country: 'ca' }}
               />
-            </div>
-          )}
+            )}
+          </div>
         </Col>
       </Row>
       <Row as="ul" className="pl-0" role="region" aria-live="polite" aria-relevant="additions removals">

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import classnames from 'classnames';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Footer from '../components/footer';
+import Nav from '../components/nav';
 
 const SubmitBusinessPage = ({ data }) => {
   const [validated, setValidated] = useState(false);
@@ -46,9 +46,7 @@ const SubmitBusinessPage = ({ data }) => {
         <meta name="description" content={data.site.siteMetadata.description}></meta>
       </Helmet>
       <div className="bg-light">
-        <Link className={classnames('mt-2', 'ml-2', 'btn', 'btn-secondary')} to="/">
-          Home
-        </Link>
+        <Nav />
         <Container className="pt-4 pb-4">
           <Row>
             <Col>

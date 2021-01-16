@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { graphql, Link } from 'gatsby';
-import classnames from 'classnames';
+import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Container from 'react-bootstrap/Container';
 import Hero from '../components/hero';
 import Search from '../components/search';
 import RestaurantList from '../components/restaurant';
 import Footer from '../components/footer';
-
-import styles from './index.module.css';
+import Nav from '../components/nav';
 
 const Main = ({ data }) => {
   const restaurants = data.allContentfulRestaurant.edges;
@@ -16,9 +14,7 @@ const Main = ({ data }) => {
   const [searchTerm, setSearchTerm] = useState(undefined);
   return (
     <main>
-      <Link className={classnames(styles.about, "mt-2", "mr-2", "btn", "btn-secondary")} to="/about">
-        About
-      </Link>
+      <Nav />
       <Helmet>
         <html lang="en" />
         <title>{data.site.siteMetadata.title}</title>

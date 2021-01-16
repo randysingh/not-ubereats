@@ -150,7 +150,7 @@ export default ({ restaurants, searchTerm }) => {
           </div>
           <div>
             <Button className="pl-0" onClick={() => setShowAddressBar(true)} variant="link" type="submit" size="sm">
-              Not at home? Enter address
+              Not home? Enter address
             </Button>
             {hasLocationError && (
               <span className={classnames('invalid-feedback', styles.warning)}>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Footer from '../components/footer';
+import Nav from '../components/nav';
 
 import styles from './about.module.css';
 
@@ -32,9 +33,7 @@ const AboutPage = ({ data }) => {
         <title>About</title>
         <meta name="description" content={data.site.siteMetadata.description}></meta>
       </Helmet>
-      <Link className={classnames(styles.home, 'mt-2', 'ml-2', 'btn', 'btn-secondary')} to="/">
-        Home
-      </Link>
+      <Nav />
       <div className={styles.background} style={{ backgroundImage: `url(${src})` }}>
         <Container className="text-center py-5">
           <Row className={classnames('py-lg-5', 'align-items-center')}>
@@ -110,8 +109,11 @@ const AboutPage = ({ data }) => {
                   Randy Singh
                 </a>
                 , in order to help restaurants during this difficult time and I do not profit in any way. Also thank you
-                to <a target="_blank" rel="noreferrer" href="https://ca.linkedin.com/in/gamaliel-obinyan">Gamaliel Obinyan</a> for helping research local
-                restaurants and for the encouragement.
+                to{' '}
+                <a target="_blank" rel="noreferrer" href="https://ca.linkedin.com/in/gamaliel-obinyan">
+                  Gamaliel Obinyan
+                </a>{' '}
+                for helping research local restaurants and for the encouragement.
               </p>
             </Col>
           </Row>

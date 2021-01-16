@@ -65,6 +65,16 @@ export default () => (
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
+            <Card>
+              <Accordion.Toggle as={Card.Header} eventKey="4">
+                What gives? Why am I ordering through Ritual?/A DoorDash driver delivered my order?
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="4">
+                <Card.Body>
+                  It's quite expensive for restaurants to hire their own drivers. Many Toronto restaurants have partnered with Ritual since it's <a target="_blank" rel="noopener noreferrer" href="https://www.toronto.ca/news/city-of-toronto-partnership-with-ritual-open-for-business-supports-more-than-1000-local-businesses-with-free-delivery-until-november-8/">free through 2021</a>. They may use DoorDash drivers at a flat rate fee but DoorDash is not receiving a commission on these order. If you think a restaurant shouldn't be on the platform or want clarification <Link to="/about">contact me.</Link>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
           </Accordion>
         </Col>
       </Row>

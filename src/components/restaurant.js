@@ -144,7 +144,7 @@ export default ({ restaurants, searchTerm }) => {
                 size="sm"
                 onChange={(e) => setShowOpenOnly(e.currentTarget.checked)}
               >
-                Open Now
+                Open now
               </ToggleButton>
             </ToggleButtonGroup>
           </div>
@@ -230,8 +230,8 @@ export default ({ restaurants, searchTerm }) => {
       {hasMore() && (
         <Row>
           <Col className="text-center">
-            <Button variant="secondary" onClick={handleShowMore}>
-              View More
+            <Button variant="dark" onClick={handleShowMore}>
+              Show more
             </Button>
           </Col>
         </Row>

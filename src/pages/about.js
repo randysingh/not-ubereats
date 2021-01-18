@@ -58,7 +58,7 @@ const AboutPage = ({ data }) => {
         <Container className="pt-4 pb-4">
           <Row>
             <Col>
-              <h2 className="font-weight-light">Question or Comments?</h2>
+              <h2 className="font-weight-light text-center">Question or Comments?</h2>
             </Col>
           </Row>
           <Row>

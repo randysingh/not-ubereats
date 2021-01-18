@@ -25,6 +25,7 @@
     "dotenv": "^8.2.0",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.8.0",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-gtag": "^2.5.0",
     "gatsby-plugin-manifest": "^2.9.0",
     "gatsby-plugin-netlify": "^2.8.0",

@@ -78,7 +78,7 @@ const SubmitBusinessPage = ({ data }) => {
                 </Form.Group>
                 <Form.Group controlId="address">
                   <Form.Label>Address</Form.Label>
-                  <Form.Control type="text" placeholder="Address" name="address" required />
+                  <Form.Control type="text" placeholder="1 Yonge St, Toronto, ON" name="address" required />
                   <Form.Control.Feedback type="invalid">Address is required</Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group controlId="hours">
@@ -88,7 +88,7 @@ const SubmitBusinessPage = ({ data }) => {
                 </Form.Group>
                 <Form.Group controlId="link">
                   <Form.Label>Link to website - (Please use https if possible)</Form.Label>
-                  <Form.Control type="URL" placeholder="Link" name="link" required />
+                  <Form.Control type="URL" placeholder="https://www.mysite.com" name="link" required />
                   <Form.Control.Feedback type="invalid">
                     Link is required. Please include https://
                   </Form.Control.Feedback>

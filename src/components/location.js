@@ -33,10 +33,10 @@ export default ({ setLocation, setLocationError }) => {
             <span className="sr-only">Loading...</span>
           </Spinner>
         ) : (
-          <React.Fragment>
-            <FontAwesomeIcon className={'mr-2'} icon={faLocationArrow} />
+          <div>
+            <FontAwesomeIcon size="sm" className={'mr-2'} icon={faLocationArrow} />
             <span>Sort by distance</span>
-          </React.Fragment>
+          </div>
         )}
       </Button>
     </div>

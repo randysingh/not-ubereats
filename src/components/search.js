@@ -13,7 +13,7 @@ export default ({ setSearchTerm }) => {
         <InputGroup className="mb-2">
           <InputGroup.Prepend>
             <div className="input-group-text bg-white border-right-0">
-              <FontAwesomeIcon icon={faSearch} />
+              <FontAwesomeIcon size="sm" icon={faSearch} />
             </div>
           </InputGroup.Prepend>
           <FormControl

@@ -6,11 +6,14 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Autocomplete from 'react-google-autocomplete';
+import DateGroup from '../components/date-group';
 import Footer from '../components/footer';
 import Nav from '../components/nav';
 
 const SubmitBusinessPage = ({ data }) => {
   const [validated, setValidated] = useState(false);
+  const [checked, setChecked] = useState({});
 
   const fileOnChange = (event) => {
     const files = event.currentTarget.files;
@@ -31,6 +34,7 @@ const SubmitBusinessPage = ({ data }) => {
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
+
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
@@ -73,19 +77,43 @@ const SubmitBusinessPage = ({ data }) => {
                 </Form.Group>
                 <Form.Group controlId="description">
                   <Form.Label>Description - 250 character limit</Form.Label>
-                  <Form.Control type="textarea" placeholder="Description" name="description" minLength="100" maxLength="250" required />
-                  <Form.Control.Feedback type="invalid">Description is required. 100 character minimum.</Form.Control.Feedback>
+                  <Form.Control
+                    type="textarea"
+                    placeholder="Description"
+                    name="description"
+                    minLength="100"
+                    maxLength="250"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Description is required. 100 character minimum.
+                  </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group controlId="address">
+                <Form.Group controlId="description">
                   <Form.Label>Address</Form.Label>
-                  <Form.Control type="text" placeholder="1 Yonge St, Toronto, ON" name="address" required />
-                  <Form.Control.Feedback type="invalid">Address is required</Form.Control.Feedback>
+                  <Autocomplete
+                    apiKey={process.env.GATSBY_GOOGLE_PLACES_KEY}
+                    className="form-control mt-2"
+                    aria-label="Address"
+                    types={['address']}
+                    componentRestrictions={{ country: 'ca' }}
+                    name="address"
+                    id="address"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please enter restaurant address.
+                  </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group controlId="hours">
-                  <Form.Label>Hours</Form.Label>
-                  <Form.Control type="text" placeholder="Hours (eg. M-F 8am-8pm, S-S 10am-10pm)" name="hours" required />
-                  <Form.Control.Feedback type="invalid">Hours are required</Form.Control.Feedback>
-                </Form.Group>
+                <Form.Label>Delivery Hours</Form.Label>
+                <DateGroup name="Monday" checked={checked} setChecked={setChecked}></DateGroup>
+                <DateGroup name="Tuesday" checked={checked} setChecked={setChecked}></DateGroup>
+                <DateGroup name="Wednesday" checked={checked} setChecked={setChecked}></DateGroup>
+                <DateGroup name="Thursday" checked={checked} setChecked={setChecked}></DateGroup>
+                <DateGroup name="Friday" checked={checked} setChecked={setChecked}></DateGroup>
+                <DateGroup name="Saturday" checked={checked} setChecked={setChecked}></DateGroup>
+                <DateGroup name="Sunday" checked={checked} setChecked={setChecked}></DateGroup>
+                <Form.Control.Feedback type="invalid">Please select delivery hours.</Form.Control.Feedback>
                 <Form.Group controlId="link">
                   <Form.Label>Link to website - (Please use https if possible)</Form.Label>
                   <Form.Control type="URL" placeholder="https://www.mysite.com" name="link" required />

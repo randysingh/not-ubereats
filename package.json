@@ -38,6 +38,8 @@
     "gatsby-transformer-remark": "^2.13.0",
     "gatsby-transformer-sharp": "^2.9.0",
     "haversine-distance": "^1.2.1",
+    "moment": "^2.29.1",
+    "rc-time-picker": "^3.7.3",
     "react": "^16.13.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^16.13.1",

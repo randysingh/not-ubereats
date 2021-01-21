@@ -11,7 +11,7 @@ export default () => (
         <Nav.Link as={Link} to="/">Home</Nav.Link>
         <Nav.Link as={Link} to="/about">About</Nav.Link>
         <Nav.Link as={Link} to="/faqs">FAQs</Nav.Link>
-        <Nav.Link as={Link} to="/submit-business">Submit</Nav.Link>
+        <Nav.Link as={Link} to="/submit-business/">Submit</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>

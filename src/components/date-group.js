@@ -4,11 +4,9 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import 'rc-time-picker/assets/index.css';
-import moment from 'moment';
 
 export default ({ name, checked, setChecked }) => {
   const format = 'h:mm a';
-  const now = moment().hour(0).minute(0);
 
   return (
     <Row>
@@ -18,33 +16,39 @@ export default ({ name, checked, setChecked }) => {
             type="checkbox"
             name={name}
             label={name}
+            onChange={(event) => {
+              checked[name] = event.target.checked;
+              setChecked({ ...checked });
+            }}
           />
         </Form.Group>
       </Col>
-      <Col md={4} lg={3} xs={3}>
-        <label>Open:</label>
-        <TimePicker
-          showSecond={false}
-          defaultValue={now}
-          format={format}
-          use12Hours
-          name={`${name}-openhours`}
-          id={`${name}-openhours`}
-          inputReadOnly
-        />
-      </Col>
-      <Col md={4} lg={3} xs={3}>
-        <label>Closed:</label>
-        <TimePicker
-          showSecond={false}
-          defaultValue={now}
-          format={format}
-          name={`${name}-closedhours`}
-          id={`${name}-closedhours`}
-          use12Hours
-          inputReadOnly
-        />
-      </Col>
+      <React.Fragment>
+        <Col md={4} lg={3} xs={3}>
+          <label>Open:</label>
+          <TimePicker
+            showSecond={false}
+            format={format}
+            placeholder="12:00am"
+            use12Hours
+            name={`${name}-openhours`}
+            id={`${name}-openhours`}
+            inputReadOnly
+          />
+        </Col>
+        <Col md={4} lg={3} xs={3}>
+          <label>Closed:</label>
+          <TimePicker
+            showSecond={false}
+            format={format}
+            placeholder="12:00am"
+            name={`${name}-closedhours`}
+            id={`${name}-closedhours`}
+            use12Hours
+            inputReadOnly
+          />
+        </Col>
+      </React.Fragment>
     </Row>
   );
 };

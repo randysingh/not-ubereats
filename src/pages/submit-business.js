@@ -65,7 +65,7 @@ const SubmitBusinessPage = ({ data }) => {
                 netlify-honeypot="bot-field"
                 data-netlify="true"
                 name="business"
-                enctype="multipart/form-data"
+                encType="multipart/form-data"
                 noValidate
                 onSubmit={handleSubmit}
               >

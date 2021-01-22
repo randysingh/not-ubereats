@@ -1,0 +1,5 @@
+@media (max-width: 767.98px) {
+  .map {
+    height: calc(100vh - 180px);
+  }
+}

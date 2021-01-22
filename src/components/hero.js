@@ -21,7 +21,7 @@ export default ({ src }) => (
         </Link>
       </Col>
       <Col lg={5} md={6}>
-        <img className={styles.icon} src={TakeoutIcon}></img>
+        <img alt="" className={styles.icon} src={TakeoutIcon}></img>
       </Col>
     </Row>
   </Container>

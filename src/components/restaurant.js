@@ -11,6 +11,7 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import haversine from 'haversine-distance';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'gatsby';
 import Autocomplete from 'react-google-autocomplete';
 import Location from './location';
 
@@ -147,6 +148,7 @@ export default ({ restaurants, searchTerm }) => {
                 Open now
               </ToggleButton>
             </ToggleButtonGroup>
+            <Link to="/map" className="ml-1 btn btn-sm btn-outline-primary">View map</Link>
           </div>
           <div>
             <Button className="pl-0" onClick={() => setShowAddressBar(true)} variant="link" type="submit" size="sm">

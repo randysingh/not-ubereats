@@ -25,7 +25,7 @@ export default ({ name, checked, setChecked }) => {
       </Col>
       <React.Fragment>
         <Col md={4} lg={3} xs={3}>
-          <label>Open:</label>
+          <label htmlFor={`${name}-openhours`}>Open:</label>
           <TimePicker
             showSecond={false}
             format={format}
@@ -37,7 +37,7 @@ export default ({ name, checked, setChecked }) => {
           />
         </Col>
         <Col md={4} lg={3} xs={3}>
-          <label>Closed:</label>
+          <label htmlFor={`${name}-closedhours`}>Closed:</label>
           <TimePicker
             showSecond={false}
             format={format}

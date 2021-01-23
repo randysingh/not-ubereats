@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,7 +9,12 @@ import Nav from '../components/nav';
 import styles from './map.module.css';
 
 export default () => (
-  <React.Fragment>
+  <main>
+    <Helmet>
+      <html lang="en" />
+      <title>Map</title>
+      <description>View all restaurants on a map</description>
+    </Helmet>
     <Nav />
     <Container as="section" className="text-center">
       <Row>
@@ -22,13 +28,13 @@ export default () => (
             ></iframe>
           </ResponsiveEmbed>
           <p className="mt-4">
-            Note for a better experience check out the full version{' '}
+            Note for a better experience check out the{' '}
             <a target="_blank" rel="noopener noreferrer" href="https://go.mapstr.com/notUberEats">
-              here
+              full version here
             </a>
           </p>
         </Col>
       </Row>
     </Container>
-  </React.Fragment>
+  </main>
 );

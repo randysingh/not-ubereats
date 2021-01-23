@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
+import { Helmet } from 'react-helmet';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,7 +10,12 @@ import { Link } from 'gatsby';
 import Nav from '../components/nav';
 
 export default () => (
-  <React.Fragment>
+  <main>
+    <Helmet>
+      <html lang="en" />
+      <title>FAQs</title>
+      <description>Frequently asked questions(FAQs)</description>
+    </Helmet>
     <Nav />
     <Container as="section" className="text-center py-5">
       <Row className="py-lg-5">
@@ -23,9 +29,8 @@ export default () => (
               <Accordion.Collapse eventKey="0">
                 <Card.Body>
                   Many delivery apps take 30% of the order as a commission. Additionally, with delivery apps you'll
-                  notice service fees. By ordering directly, the restaurant can keep more of the money and
-                  eliminate service fees. This puts more money directly into your local restaurants and saving
-                  you money to boot!
+                  notice service fees. By ordering directly, the restaurant can keep more of the money and eliminate
+                  service fees. This puts more money directly into your local restaurants and saving you money to boot!
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
@@ -35,9 +40,8 @@ export default () => (
               </Accordion.Toggle>
               <Accordion.Collapse eventKey="1">
                 <Card.Body>
-                  Click <Link to="/submit-business">here.</Link>{' '}
-                  The more details you can add the faster we can get your submission up as we do this in our spare time
-                  :).
+                  Click <Link to="/submit-business">here.</Link> The more details you can add the faster we can get your
+                  submission up as we do this in our spare time :).
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
@@ -60,7 +64,7 @@ export default () => (
               <Accordion.Collapse eventKey="3">
                 <Card.Body>
                   We're looking for volunteers to help catalog restaurants in their city. If you think you can come up
-                  with a list of restaurants(at least 50) for your city contact us <Link to="/about">here.</Link> Please
+                  with a list of restaurants(at least 50) for your city <Link to="/about">contact us here.</Link> Please
                   be patient as we do have full-time jobs outside of this.
                 </Card.Body>
               </Accordion.Collapse>
@@ -71,7 +75,18 @@ export default () => (
               </Accordion.Toggle>
               <Accordion.Collapse eventKey="4">
                 <Card.Body>
-                  It's quite expensive for restaurants to hire their own drivers. Many Toronto restaurants have partnered with Ritual since it's <a target="_blank" rel="noopener noreferrer" href="https://www.toronto.ca/news/city-of-toronto-partnership-with-ritual-open-for-business-supports-more-than-1000-local-businesses-with-free-delivery-until-november-8/">free through 2021</a>. They may use DoorDash drivers at a flat rate fee but DoorDash is not receiving a commission on these order. If you think a restaurant shouldn't be on the platform or want clarification <Link to="/about">contact me.</Link>
+                  It's quite expensive for restaurants to hire their own drivers. Many Toronto restaurants have
+                  partnered with Ritual since it's{' '}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.toronto.ca/news/city-of-toronto-partnership-with-ritual-open-for-business-supports-more-than-1000-local-businesses-with-free-delivery-until-november-8/"
+                  >
+                    free through 2021
+                  </a>
+                  . They may use DoorDash drivers at a flat rate fee but DoorDash is not receiving a commission on these
+                  order. If you think a restaurant shouldn't be on the platform or want clarification{' '}
+                  <Link to="/about">contact me.</Link>
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
@@ -79,5 +94,5 @@ export default () => (
         </Col>
       </Row>
     </Container>
-  </React.Fragment>
+  </main>
 );

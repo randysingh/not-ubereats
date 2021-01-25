@@ -7,11 +7,13 @@ import Search from '../components/search';
 import RestaurantList from '../components/restaurant';
 import Footer from '../components/footer';
 import Nav from '../components/nav';
+import DeliveryToggle from '../components/delivery-toggle'
 
 const Main = ({ data }) => {
   const restaurants = data.allContentfulRestaurant.edges;
   const imageUrl = data.allContentfulHero.edges.find(element => element.node.name === 'Home').node.image.file.url;
   const [searchTerm, setSearchTerm] = useState(undefined);
+  const [showDelivery, setShowDelivery] = useState(true);
   return (
     <main>
       <Nav />
@@ -21,10 +23,11 @@ const Main = ({ data }) => {
         <meta name="description" content={data.site.siteMetadata.description}></meta>
       </Helmet>
       <Hero src={imageUrl}></Hero>
-      <div className="bg-light py-5">
+      <div className="bg-light py-3">
         <Container>
+          <DeliveryToggle showDelivery={showDelivery} setShowDelivery={setShowDelivery}></DeliveryToggle>
           <Search setSearchTerm={setSearchTerm} />
-          <RestaurantList restaurants={restaurants} searchTerm={searchTerm} />
+          <RestaurantList restaurants={restaurants} searchTerm={searchTerm} showDelivery={showDelivery} />
         </Container>
       </div>
       <Footer />
@@ -56,6 +59,8 @@ export const pageQuery = graphql`
           }
           link
           tags
+          hasDelivery
+          hasPickup
           deliveryHours {
             Monday {
               open

@@ -17,7 +17,7 @@ import Location from './location';
 
 import styles from './restaurant.module.css';
 
-export default ({ restaurants, searchTerm }) => {
+export default ({ restaurants, searchTerm, showDelivery }) => {
   const [filteredRestaurants, setFilteredRestaurants] = useState(restaurants);
   const currentDayofWeek = new Date().toLocaleString('en-us', { weekday: 'long' });
   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
@@ -93,6 +93,12 @@ export default ({ restaurants, searchTerm }) => {
       currentRestaurants = currentRestaurants.filter((restaurant) => restaurant.node.isOpen);
     }
 
+    if (showDelivery) {
+      currentRestaurants = currentRestaurants.filter((restaurant) => restaurant.node.hasDelivery);
+    } else {
+      currentRestaurants = currentRestaurants.filter((restaurant) => restaurant.node.hasPickup);
+    }
+
     if (!location && !searchTerm) {
       setFilteredRestaurants(currentRestaurants);
       return;
@@ -116,7 +122,7 @@ export default ({ restaurants, searchTerm }) => {
   useEffect(() => {
     sortRestaurants();
     setCount(1);
-  }, [searchTerm, location, showOpenOnly]);
+  }, [searchTerm, location, showOpenOnly, showDelivery]);
 
   useEffect(() => {
     loopThroughPosts(count);
@@ -148,7 +154,9 @@ export default ({ restaurants, searchTerm }) => {
                 Open now
               </ToggleButton>
             </ToggleButtonGroup>
-            <Link to="/map" className="ml-1 btn btn-sm btn-outline-primary">View map</Link>
+            <Link to="/map" className="ml-1 btn btn-sm btn-outline-primary">
+              View map
+            </Link>
           </div>
           <div>
             <Button className="pl-0" onClick={() => setShowAddressBar(true)} variant="link" type="submit" size="sm">

@@ -44,7 +44,7 @@ export const pageQuery = graphql`
         node {
           name
           image {
-            fluid(maxWidth: 400) {
+            fluid(maxWidth: 600) {
               ...GatsbyContentfulFluid
             }
           }

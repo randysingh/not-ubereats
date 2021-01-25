@@ -154,9 +154,6 @@ export default ({ restaurants, searchTerm, showDelivery }) => {
                 Open now
               </ToggleButton>
             </ToggleButtonGroup>
-            <Link to="/map" className="ml-1 btn btn-sm btn-outline-primary">
-              View map
-            </Link>
           </div>
           <div>
             <Button className="pl-0" onClick={() => setShowAddressBar(true)} variant="link" type="submit" size="sm">

@@ -135,6 +135,7 @@ const SubmitBusinessPage = ({ data }) => {
                     <option>Desserts</option>
                     <option>Eastern European</option>
                     <option>Ethiopian</option>
+                    <option>Filipino</option>
                     <option>French</option>
                     <option>Greek</option>
                     <option>Indian</option>

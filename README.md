@@ -15,6 +15,21 @@ View the running website - https://not-ubereats.com/
 
 ## 🚀 Quick start
 
+**Prerequisites:**
+
+Setup your contentful space by following [the instructions here](https://www.contentful.com/r/knowledgebase/gatsbyjs-and-contentful-in-five-minutes/)
+
+Requires the following environment variables in a
+.env.development file:
+
+```
+CONTENTFUL_ACCESS_TOKEN=<access-token>
+CONTENTFUL_SPACE_ID=<space-id>
+GATSBY_GOOGLE_PLACES_KEY=<used-for-location-search>
+```
+
+I've put samples of the content models in the /sample folder you can [import](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/) if you wish to. If you're interested in being a contributer I can provide you with the current site values.
+
 1.  **Start developing.**
 
     Navigate to the repo and run:
@@ -33,3 +48,4 @@ View the running website - https://not-ubereats.com/
     - [Contentful](https://www.contentful.com/r/knowledgebase/gatsbyjs-and-contentful-in-five-minutes/)
     - [Netlify](https://www.netlify.com/blog/2016/02/24/a-step-by-step-guide-gatsby-on-netlify/)
     - [React Bootstrap](https://react-bootstrap.github.io/)
+    - [Google API key](https://developers.google.com/maps/gmp-get-started)

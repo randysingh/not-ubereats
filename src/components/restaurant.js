@@ -11,7 +11,6 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import haversine from 'haversine-distance';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'gatsby';
 import Autocomplete from 'react-google-autocomplete';
 import Location from './location';
 

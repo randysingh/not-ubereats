@@ -1017,6 +1017,144 @@
           ]
         }
       }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "y3zyclhxwk53"
+          }
+        },
+        "id": "20gCqeheXZId00hAD71F5L",
+        "type": "Entry",
+        "createdAt": "2020-12-23T18:47:24.832Z",
+        "updatedAt": "2020-12-25T03:00:03.268Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2020-12-25T03:00:03.268Z",
+        "firstPublishedAt": "2020-12-23T18:48:30.857Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eXZBbJY1LH6LuZgezz9zQ"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eXZBbJY1LH6LuZgezz9zQ"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eXZBbJY1LH6LuZgezz9zQ"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "hero"
+          }
+        }
+      },
+      "fields": {
+        "image": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "4UdIYFhAnWGdriDxYfJt2y"
+            }
+          }
+        },
+        "name": {
+          "en-US": "Home"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "y3zyclhxwk53"
+          }
+        },
+        "id": "4RAkZdyIeqFwuwSybER5up",
+        "type": "Entry",
+        "createdAt": "2020-12-23T18:48:37.696Z",
+        "updatedAt": "2020-12-25T03:00:03.222Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2020-12-25T03:00:03.222Z",
+        "firstPublishedAt": "2020-12-23T18:48:59.380Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eXZBbJY1LH6LuZgezz9zQ"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eXZBbJY1LH6LuZgezz9zQ"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eXZBbJY1LH6LuZgezz9zQ"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "hero"
+          }
+        }
+      },
+      "fields": {
+        "image": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "yxyCtB9ruZ1m01m4oxAgP"
+            }
+          }
+        },
+        "name": {
+          "en-US": "About"
+        }
+      }
     }
   ],
   "assets": [
@@ -1216,6 +1354,140 @@
               }
             },
             "fileName": "6.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "y3zyclhxwk53"
+          }
+        },
+        "id": "4UdIYFhAnWGdriDxYfJt2y",
+        "type": "Asset",
+        "createdAt": "2020-12-23T18:36:31.876Z",
+        "updatedAt": "2020-12-23T18:46:50.937Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2020-12-23T18:46:50.937Z",
+        "firstPublishedAt": "2020-12-23T18:36:53.228Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eXZBbJY1LH6LuZgezz9zQ"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eXZBbJY1LH6LuZgezz9zQ"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eXZBbJY1LH6LuZgezz9zQ"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Hero"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/y3zyclhxwk53/4UdIYFhAnWGdriDxYfJt2y/08cce5e4993192395cf97349cbfe539b/plane-takes-off-in-toronto-min.jpg",
+            "details": {
+              "size": 273360,
+              "image": {
+                "width": 2960,
+                "height": 1342
+              }
+            },
+            "fileName": "plane-takes-off-in-toronto-min.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "y3zyclhxwk53"
+          }
+        },
+        "id": "yxyCtB9ruZ1m01m4oxAgP",
+        "type": "Asset",
+        "createdAt": "2020-12-23T18:37:00.186Z",
+        "updatedAt": "2020-12-26T23:45:12.961Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2020-12-26T23:45:12.961Z",
+        "firstPublishedAt": "2020-12-23T18:37:13.332Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eXZBbJY1LH6LuZgezz9zQ"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eXZBbJY1LH6LuZgezz9zQ"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eXZBbJY1LH6LuZgezz9zQ"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "About"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/y3zyclhxwk53/yxyCtB9ruZ1m01m4oxAgP/d85b4d048bb51aa5e2419372182fdaee/support-local__1_.jpg",
+            "details": {
+              "size": 64145,
+              "image": {
+                "width": 1680,
+                "height": 1120
+              }
+            },
+            "fileName": "support-local (1).jpg",
             "contentType": "image/jpeg"
           }
         }

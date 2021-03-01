@@ -7,14 +7,16 @@ import Col from 'react-bootstrap/Col';
 import TakeoutIcon from '../images/takeout.svg';
 import styles from './hero.module.css';
 
-export default ({ src }) => (
+export default ({ src, city="Toronto" }) => (
   <Container as="section" className={classnames('text-left py-5', styles.container)}>
     <Row className="py-lg-5">
       <Col lg={7} md={6}>
         <h1 className="font-weight-light">Not UberEats</h1>
         <p className={classnames('pt-lg-3 lead text-dark', styles.subtitle)}>
-          A list of local restaurants in Toronto that offer their own delivery service. Support local instead of letting
-          delivery apps take 30% of every order!
+          {
+            `A list of local restaurants in ${city} that offer their own delivery service. Support local instead of letting
+            delivery apps take 30% of every order!`
+          }
         </p>
         <div>
           <Link className={classnames('btn btn-secondary', styles.button)} to="/submit-business/">

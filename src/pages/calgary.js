@@ -3,15 +3,15 @@ import App from '../components/app';
 
 const Main = ({data}) => {
   return (
-    <App data={data}></App>
+    <App data={data} city={"Calgary"}></App>
   );
 };
 
 export default Main;
 
 export const pageQuery = graphql`
-  query HomeQuery {
-    allContentfulRestaurant(filter: {city: {eq: "Toronto"}}) {
+  query CalgaryQuery {
+    allContentfulRestaurant(filter: {city: {eq: "Calgary"}}) {
       edges {
         node {
           name

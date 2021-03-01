@@ -39,7 +39,7 @@ export default Main;
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulRestaurant {
+    allContentfulRestaurant(filter: {city: {eq: "Toronto"}}) {
       edges {
         node {
           name

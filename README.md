@@ -1,14 +1,15 @@
 <h1 align="center">
-  Not UberEats
+  Local Eats
 </h1>
+<p>Formerly Not UberEats<p>
 <p>
 This website was created to help showcase local restaurants in Toronto who offer their own delivery service.
 
-By showcasing these restaurants I hope that we can help struggling businesses during this difficult time by putting more money in their pocket instead of third-party companies such as UberEats.
+By showcasing these restaurants I hope that we can help struggling businesses during this difficult time by putting more money in their pocket instead of third-party companies.
 
 I built this site using Gatsby, using Contentful CMS and hosted on Netlify. For styling I'm using the React Bootstrap library.
 
-View the running website - https://not-ubereats.com/
+View the running website - https://iwanteats.com/
 </p>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8628a000-2043-4016-ac7c-d9c14559d7f7/deploy-status)](https://app.netlify.com/sites/optimistic-wing-8db644/deploys)

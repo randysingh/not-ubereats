@@ -23,13 +23,13 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Not UberEats',
+    title: 'Local Eats',
     author: {
       name: `Randy Singh`,
       summary: `who lives and works in Toronto building useful things.`,
     },
     description: `Find local restaurants in Toronto and reduce delivery fees for restaurants.`,
-    siteUrl: `https://not-ubereats.com/`,
+    siteUrl: `https://iwanteats.com/`,
   },
   plugins: [
     'gatsby-plugin-sitemap',

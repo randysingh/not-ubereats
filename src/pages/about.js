@@ -44,8 +44,8 @@ const AboutPage = ({ data }) => {
           <Row>
             <Col>
               <p className="lead text-dark">
-                Unfortunately, UberEats and many other companies are charging restaurants <b>30%</b> for food delivery.
-                Not only that, food on UberEats is typically <b>more expensive</b> than ordering from the restaurant
+                Unfortunately, delivery companies are charging restaurants <b>30%</b> for food delivery.
+                Not only that, food on third party delivery apps is typically <b>more expensive</b> than ordering from the restaurant
                 directly. By ordering from your local restaurant you're putting{' '}
                 <b>more money into the local economy and helping restaurants during this critical time.</b> I built this
                 site to encourage people to order directly and find new local delights.

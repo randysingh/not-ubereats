@@ -1,8 +1,8 @@
 {
-  "name": "not-ubereats",
+  "name": "local-eats",
   "version": "1.0.0",
   "private": true,
-  "description": "not-ubereats",
+  "description": "local-eats",
   "author": "Randy Singh",
   "keywords": [
     "gatsby"
